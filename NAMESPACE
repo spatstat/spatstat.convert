@@ -1,0 +1,9 @@
+import(stats,graphics)
+import(spatstat.utils,spatstat.sparse,spatstat.geom,spatstat.explore)
+import(spatstat)
+
+# Export all names unless they start with a dot
+exportPattern("^[^.]")
+
+# Methods 
+S3method("as.im", "SpatRaster")

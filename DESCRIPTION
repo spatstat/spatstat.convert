@@ -1,0 +1,16 @@
+Package: spatstat.convert
+Type: Package
+Title: Extension to 'spatstat' for Converting Data Formats
+Version: 0.0-0
+Date: 2024-10-22
+Depends: R (>= 3.5.0), spatstat (>= 3.2-1), spatstat.sparse (>= 3.1), spatstat.geom (>= 3.3), spatstat.explore (>= 3.3), stats, graphics
+Imports: spatstat.utils (>= 3.0-5)
+Suggests: terra (>= 1.7-83)
+Authors@R: c(person("Adrian", "Baddeley", 
+                    role = c("aut", "cre"),
+       	            email = "Adrian.Baddeley@curtin.edu.au"))
+Maintainer: Adrian Baddeley <Adrian.Baddeley@curtin.edu.au>
+Description: Extension to the 'spatstat' package, enabling the user
+	     to convert data from other formats to `spatstat' formats.
+License: GPL (>= 2)
+ByteCompile: true
