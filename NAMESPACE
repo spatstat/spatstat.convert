@@ -7,3 +7,4 @@ exportPattern("^[^.]")
 
 # Methods 
 S3method("as.im", "SpatRaster")
+S3method("as.ppp", "sf")

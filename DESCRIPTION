@@ -5,7 +5,7 @@ Version: 0.0-0
 Date: 2024-10-22
 Depends: R (>= 3.5.0), spatstat (>= 3.2-1), spatstat.sparse (>= 3.1), spatstat.geom (>= 3.3), spatstat.explore (>= 3.3), stats, graphics
 Imports: spatstat.utils (>= 3.0-5)
-Suggests: terra (>= 1.7-83)
+Suggests: terra (>= 1.7-83), sp (>= 2.1)
 Authors@R: c(person("Adrian", "Baddeley", 
                     role = c("aut", "cre"),
        	            email = "Adrian.Baddeley@curtin.edu.au"))
