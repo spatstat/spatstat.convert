@@ -42,15 +42,14 @@
   \code{\link[spatstat.geom]{as.ppp}}.
 }
 \examples{
-  if(FALSE && require(sf) && require(sp)) {
-   ## Do not execute: bug in sf:::check_spatstat for fractional version numbers
+  if(require(sf, quietly=TRUE) && require(sp, quietly=TRUE)) {
    ## point pattern dataset in 'sp' format
    data(meuse)
    coordinates(meuse) = ~x+y
    ## convert to 'sf' format
    maas <- st_as_sf(meuse)
    ## convert to 'spatstat' format
-   z <- spatstat.convert::as.ppp.sf(maas)
+   z <- as.ppp(maas)
   }
 }
 \keyword{spatial}

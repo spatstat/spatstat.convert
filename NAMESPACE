@@ -1,10 +1,26 @@
-import(stats,graphics)
-import(spatstat.utils,spatstat.sparse,spatstat.geom,spatstat.explore)
-import(spatstat)
+import(stats,graphics,methods)
+import(spatstat.utils,spatstat.univar)
+import(spatstat.geom,spatstat.linnet,spatstat)
 
 # Export all names unless they start with a dot
 exportPattern("^[^.]")
 
 # Methods 
 S3method("as.im", "SpatRaster")
+S3method("as.im", "SpatialGridDataFrame")
+
 S3method("as.ppp", "sf")
+S3method("as.ppp", "SpatialPoints")
+S3method("as.ppp", "SpatialPointsDataFrame")
+
+
+S3method("as.owin", "SpatialPolygons")
+S3method("as.owin", "SpatialGridDataFrame")
+S3method("as.owin", "SpatialPixelsDataFrame")
+
+S3method("as.psp", "Line")
+S3method("as.psp", "Lines")
+S3method("as.psp", "SpatialLines")
+S3method("as.psp", "SpatialLinesDataFrame")
+
+S3method("as.linnet", "SpatialLines")

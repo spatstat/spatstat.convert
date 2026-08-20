@@ -4,7 +4,7 @@
   Convert `terra' Raster Image to `spatstat' Image 
 }
 \description{
-  Given a raster image in the \code{raster} format of the \pkg{terra}
+  Given a raster image in the \code{SpatRaster} format of the \pkg{terra}
   package, convert it to a pixel image of class \code{im} in the
   \pkg{spatstat} package.
 }
@@ -13,7 +13,8 @@
 }
 \arguments{
   \item{X}{
-    A raster image object of class \code{raster} in the \pkg{terra} package.
+    A raster image object of class \code{SpatRaster}
+    in the \pkg{terra} package.
   }
   \item{\dots}{Ignored.}
 }
