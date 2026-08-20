@@ -57,7 +57,7 @@ as.SpatialLines.psp(from)
 
 
 
-\author{Edzer Pebesma \email{edzer.pebesma@uni-muenster.de}, Roger Bivand}
+\author{\edzer and \roger}
 \examples{
 if (require("sp", quietly=TRUE)) {
   data(meuse.riv)

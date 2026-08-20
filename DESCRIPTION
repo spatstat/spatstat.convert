@@ -1,14 +1,27 @@
 Package: spatstat.convert
 Type: Package
 Title: Extension to 'spatstat' for Converting Data Formats
-Version: 0.0-1
+Version: 0.0-2
 Date: 2026-10-20
-Depends: R (>= 3.5.0), spatstat (>= 3.6-2), spatstat.geom (>= 3.8-2), spatstat.linnet (>= 3.5-3), stats, graphics, methods
+Depends: R (>= 3.4.0), spatstat (>= 3.6-2), spatstat.geom (>= 3.8-2), spatstat.linnet (>= 3.5-3), stats, graphics, methods
 Imports: spatstat.utils (>= 3.2-4), spatstat.univar (>= 3.2-0)
-Suggests: terra (>= 1.7-83), sp (>= 2.1), sf
+Suggests: terra (>= 1.7-83), sp (>= 2.1), sf (>= 1.0-21)
 Authors@R: c(person("Adrian", "Baddeley", 
                     role = c("aut", "cre"),
-       	            email = "Adrian.Baddeley@curtin.edu.au"))
+       	            email = "Adrian.Baddeley@curtin.edu.au"),
+             person("Ege", "Rubak", 
+                    role = "aut",
+       	            email = "rubak@math.aau.dk"),
+             person("Rolf", "Turner", 
+                    role = "aut",
+       	            email = "rolfturner@posteo.net"),
+             person("Edzer", "Pebesma", 
+                    role = "aut",
+       	            email = "edzer.pebesma@uni-muenster.de"),
+             person("Roger", "Bivand", role="aut"),
+             person("Michael", "Sumner", role="ctb"),
+             person("Matthew", "Lewis", role="ctb"),
+             person("Mathieu", "Rajerison", role="ctb"))
 Maintainer: Adrian Baddeley <Adrian.Baddeley@curtin.edu.au>
 Description: Extension to the 'spatstat' package, enabling the user
 	     to convert data from other formats to `spatstat' formats.

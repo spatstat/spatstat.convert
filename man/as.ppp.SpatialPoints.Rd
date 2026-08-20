@@ -71,7 +71,7 @@ and finally converts the TRUE/FALSE grid to a \code{SpatialGridDataFrame}.}
   This is probably not a good idea!
 }
 
-\author{Edzer Pebesma \email{edzer.pebesma@uni-muenster.de}, Roger Bivand}
+\author{\edzer and \roger}
 \examples{
 if (require("sp", quietly=TRUE)) {
   ## Convert SpatialPointsDataFrame into a marked ppp

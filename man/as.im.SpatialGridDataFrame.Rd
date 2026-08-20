@@ -52,8 +52,7 @@
   \code{\link{as.SpatialPolygons.tess}}.
 }
 \author{
-  Edzer Pebesma \email{edzer.pebesma@uni-muenster.de} and Roger Bivand.
-  Adapted by Adrian Baddeley.
+  \edzer and \roger. Adapted by \adrian.
 }
 \examples{
 run <- FALSE

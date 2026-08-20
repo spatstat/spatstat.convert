@@ -31,7 +31,7 @@
   \pkg{spatstat} family of packages.
 }
 \author{
-  Robert Hijmans, Ege Rubak and Adrian Baddeley.
+  Robert Hijmans, \ege and \adrian.
 }
 \seealso{
   \code{\link[spatstat.geom]{as.im}}.

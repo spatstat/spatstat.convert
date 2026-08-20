@@ -67,7 +67,7 @@
   An object of class \code{linnet}.
 }
 \author{
-  Adrian Baddeley.
+  \adrian.
 }
 \seealso{
   \code{\link[spatstat.linnet]{as.linnet}}

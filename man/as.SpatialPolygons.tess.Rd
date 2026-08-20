@@ -20,7 +20,7 @@ as.SpatialPolygons.tess(from)
   \item{from}{\pkg{spatstat} object of class \code{tess} to coerce from}
 }
 
-\author{Edzer Pebesma \email{edzer.pebesma@uni-muenster.de}, Roger Bivand}
+\author{\edzer and \roger}
 \examples{
 if (require("sp", quietly=TRUE)) {
   A <- tess(xgrid=0:4,ygrid=0:4)

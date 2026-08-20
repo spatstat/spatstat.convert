@@ -36,7 +36,7 @@
   recognised by the \pkg{spatstat} family of packages.
 }
 \author{
-  Ege Rubak and Adrian Baddeley and Edzer Pebesma
+  \ege, \adrian and \edzer.
 }
 \seealso{
   \code{\link[spatstat.geom]{as.ppp}}.

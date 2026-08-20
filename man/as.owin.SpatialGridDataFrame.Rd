@@ -86,10 +86,7 @@ as.SpatialGridDataFrame.owin(from)
   \code{spatstat.options(checkpolygons=FALSE)}.
   To perform the checking later, \code{owinpolycheck(W, verbose=TRUE)}.
 }
-\author{Edzer Pebesma \email{edzer.pebesma@uni-muenster.de} and Roger
-  Bivand.
-  Adapted by Adrian Baddeley.
-}
+\author{\edzer and \roger. Adapted by \adrian.}
 \seealso{
   \code{\link{as.SpatialPolygons.tess}}
 }
