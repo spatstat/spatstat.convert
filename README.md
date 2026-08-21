@@ -4,7 +4,8 @@
 
 This package is under development.
 
-It will enable users to convert data from other formats
-into the formats used in the `spatstat` family of packages.
+It is an extension of `spatstat` which will enable users
+to convert data between formats used in the packages `sp`, `sf`, `terra`
+and formats used in the `spatstat` family of packages.
 
 
