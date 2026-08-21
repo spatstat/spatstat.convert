@@ -1,6 +1,6 @@
 # spatstat.convert
 
-[![GitHub R package version](https://img.shields.io/github/r-package/v/spatstat.convert/spatstat.convert)](https://github.com/spatstat/spatstat.convert)
+[![GitHub R package version](https://img.shields.io/github/r-package/v/spatstat/spatstat.convert)](https://github.com/spatstat/spatstat.convert)
 
 This package is under development.
 
