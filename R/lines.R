@@ -2,7 +2,7 @@
 #'
 #'  Handle lines 
 #' 
-#'  Last edit: 2026/08/20 Adrian Baddeley
+#'  Last edit: 2026/08/21 Adrian Baddeley
 #'  Contributions: Rolf Turner, Adrian Baddeley, Mathieu Rajerison
 
 #' (1) spatstat -> sp
@@ -13,8 +13,7 @@
 as.SpatialLines.psp <- local({
 
   as.SpatialLines.psp <- function(from) {
-    spatstat.geom::needpackage("sp",
-                               purpose="to create 'SpatialLines' objects")
+    needpack("sp", "to create 'SpatialLines' objects")
     ends <- as.data.frame(from)[,1:4]
     ends[,5] <- row.names(ends)
     y <- apply(ends, 1, munch)
@@ -34,8 +33,7 @@ setAs("psp", "SpatialLines", function(from) as.SpatialLines.psp(from))
 #'  Line -> psp
 
 as.psp.Line <- function(x, ..., window=NULL, marks=NULL, fatal=TRUE) {
-  spatstat.geom::needpackage("sp",
-                             purpose="to handle 'Line' objects")
+  needpack("sp", "to handle 'Line' objects")
   co <- slot(x, "coords")
   df <- as.data.frame(cbind(co[-nrow(co), , drop=FALSE],
                             co[-1L, , drop=FALSE]))
@@ -52,8 +50,7 @@ setAs("Line", "psp", function(from) as.psp.Line(from))
 #'  Lines -> psp
 
 as.psp.Lines <- function(x, ..., window=NULL, marks=NULL, fatal) {
-  spatstat.geom::needpackage("sp",
-                             purpose="to handle 'Lines' objects")
+  needpack("sp", "to handle 'Lines' objects")
   y <- lapply(slot(x, "Lines"), as.psp.Line, window=window)
   z <- do.call(spatstat.geom::superimpose,c(y,list(W=window)))
   if(!is.null(marks))
@@ -67,8 +64,7 @@ setAs("Lines", "psp", function(from) as.psp.Lines(from))
 
 as.psp.SpatialLines <- function(x, ..., window=NULL, marks=NULL,
                                 characterMarks=FALSE, fatal=TRUE) {
-  spatstat.geom::needpackage("sp",
-                             purpose="to handle 'SpatialLines' objects")
+  needpack("sp", "to handle 'SpatialLines' objects")
   stipulateProjected(x, fatal=fatal)
   if(is.null(window)) {
     w <- slot(x, "bbox")
@@ -93,8 +89,7 @@ setAs("SpatialLines", "psp", function(from) as.psp.SpatialLines(from))
 
 as.psp.SpatialLinesDataFrame <- function(x, ...,
                                          window=NULL, marks=NULL, fatal=TRUE) {
-  spatstat.geom::needpackage("sp",
-                             purpose="to handle 'SpatialLines' objects")
+  needpack("sp", "to handle 'SpatialLines' objects")
   stipulateProjected(x, fatal=fatal)
   y <- as(x, "SpatialLines")
   z <- spatstat.geom::as.psp(y, window=window, marks=marks)

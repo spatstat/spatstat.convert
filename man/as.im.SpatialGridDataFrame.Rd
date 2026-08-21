@@ -55,9 +55,9 @@
   \edzer and \roger. Adapted by \adrian.
 }
 \examples{
-run <- FALSE
-if (require("sp", quietly=TRUE)) run <- TRUE
-if (run) {
+% run <- FALSE
+% if (require("sp", quietly=TRUE)) run <- TRUE
+% if (run) {
   ## Extract an example SpatialGridDataFrame and plot it
   data(meuse.grid) # A data.frame
   gridded(meuse.grid) = ~x+y # Now a SpatialPixelsDataFrame
@@ -74,27 +74,19 @@ if (run) {
   \dontrun{
    image(mg2, axes=TRUE)
   }
-}
-run <- run && require(terra, quietly=TRUE)
-if (run) {
-  ## Convert SpatialGridDataFrame -> RasterLayer -> im and plot it
+% }
+% run <- run && require(terra, quietly=TRUE)
+% if (run) {
+  ## Convert SpatialGridDataFrame -> SpatRaster -> im and plot it
   r <- as(mg2, "SpatRaster")
-  rim <- as.im.RasterLayer(r)
+  rim <- as.im(r)
   plot(rim)
-  rr <- raster(nrow=2, ncol=3)
-  values(rr) <- 1:6
-  rr <- as.factor(rr)
-  rrr <- rr
-  f <- levels(rrr)[[1]]
-  f$name <- c("vector", "of", "values")
-  f$name2 <- letters[1:6]
-  levels(rrr) <- f
-  print(levels(rrr))
-  iii <- as.im.RasterLayer(rrr)
-  plot(iii)
-  iv <- as.im(rrr)
-   plot(iv)
-}
+  ## image with categorical values
+  rr <- rast(nrows=2, ncols=3)
+  values(rr) <- factor(letters[11:16])
+  ii <- as.im(rr)
+  plot(ii)
+% }
 }
 \keyword{spatial}
 \keyword{manip}

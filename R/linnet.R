@@ -7,11 +7,11 @@
 ##               coordinates that occur in different polylines,
 ##               and merges them together as identical vertices of the network.
 ##
-##    Last edit: 2026/08/20 Adrian Baddeley 
+##    Last edit: 2026/08/21 Adrian Baddeley 
 ##    Edit: 2020/04/20 Adrian Baddeley 
 
 as.linnet.SpatialLines <- function(X, ..., fuse=TRUE) {
-  spatstat.geom::needpackage("sp", purpose="to handle 'SpatialLines' objects")
+  needpack("sp", "to handle 'SpatialLines' objects")
   stipulateProjected(X)
   # extract bounding box to use as window
   bb <- sp::bbox(X)

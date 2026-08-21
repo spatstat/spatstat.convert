@@ -2,7 +2,7 @@
 #'
 #'     Conversion of windows
 #'
-#' Last edit: 2026/08/20 Adrian Baddeley
+#' Last edit: 2026/08/21 Adrian Baddeley
 #' Contributions: Mike Sumner 20101011
 #' 
 #' >>>>>>>>>>>>>  sp -> spatstat <<<<<<<<<<<<<<<<<<<<<<<<<<<<
@@ -10,7 +10,7 @@
 #' SpatialPolygons -> owin
 
 as.owin.SpatialPolygons <- function(W, ..., fatal=TRUE) {
-  needpackage("sp", purpose="to convert 'SpatialPolygons' objects")
+  needpack("sp", "to convert 'SpatialPolygons' objects")
   if(!inherits(W, "SpatialPolygons"))
     stop("W should be an object of class SpatialPolygons", call.=FALSE)
   stipulateProjected(W, fatal=fatal)
@@ -62,9 +62,10 @@ setAs("SpatialPolygons", "owin", function(from) as.owin.SpatialPolygons(from))
 #' SpatialGridDataFrame -> owin
 
 as.owin.SpatialGridDataFrame <- function(W, ..., fatal=TRUE) {
-  needpackage("sp", purpose="to convert 'SpatialGridDataFrame' objects")
+  needpack("sp", "to convert 'SpatialGridDataFrame' objects")
   stipulateProjected(W, fatal=fatal)
-  m <- t(!is.na(as(W, "matrix")))
+  V <- suppressMessages(as(W, "matrix"))
+  m <- t(!is.na(V))
   bb <- sp::bbox(W)
   spatstat.geom::owin(bb[1,], bb[2,], mask = m[nrow(m):1,])
 }
@@ -74,7 +75,7 @@ setAs("SpatialGridDataFrame", "owin", function(from) as.owin.SpatialGridDataFram
 #' SpatialPixelsDataFrame -> owin
 
 as.owin.SpatialPixelsDataFrame <- function(W, ..., fatal=TRUE) {
-  needpackage("sp", purpose="to convert 'SpatialPixelsDataFrame' objects")
+  needpack("sp", "to convert 'SpatialPixelsDataFrame' objects")
   stipulateProjected(W, fatal=fatal)
   m = t(!is.na(as(W, "matrix")))
   bb <- sp::bbox(W)
@@ -112,7 +113,7 @@ owin2Polygons <- local({
 #' tess -> SpatialPolygons
 
 as.SpatialPolygons.tess <- function(from) {
-  needpackage("sp", purpose="to create 'SpatialPolygons' objects")
+  needpack("sp", "to create 'SpatialPolygons' objects")
   stopifnot(spatstat.geom::is.tess(from))
   y <- spatstat.geom::tiles(from)
   nam <- names(y)
@@ -133,7 +134,7 @@ setAs("tess", "SpatialPolygons", function(from) as.SpatialPolygons.tess(from))
 #' owin -> SpatialPolygons
 
 as.SpatialPolygons.owin <- function(from) {
-  needpackage("sp", purpose="to create 'SpatialPolygons' objects")
+  needpack("sp", "to create 'SpatialPolygons' objects")
   stopifnot(spatstat.geom::is.owin(from))
   y <- owin2Polygons(from)
   z <- sp::SpatialPolygons(list(y))
@@ -145,7 +146,7 @@ setAs("owin", "SpatialPolygons", as.SpatialPolygons.owin)
 #' owin -> SpatialGridDataFrame
 
 as.SpatialGridDataFrame.owin <- function(from) {
-  needpackage("sp", purpose="to create 'SpatialGridDataFrame' objects")
+  needpack("sp", "to create 'SpatialGridDataFrame' objects")
   from <- spatstat.geom::as.mask(from) 
   offset <- c(from$xcol[1L], from$yrow[1L])
   cellsize <- c(from$xstep, from$ystep)

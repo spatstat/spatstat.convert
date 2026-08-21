@@ -2,7 +2,7 @@
 #'
 #'     Conversion of pixel images
 #'
-#' Last edit: 2026/08/20 Adrian Baddeley
+#' Last edit: 2026/08/21 Adrian Baddeley
 #' Contributions: Matthew Lewis 
 #' 
 #' >>>>>>>>>>>>>>   terra, sp, sf  -> spatstat  <<<<<<<<<<<<<<<<<<<<<<<<
@@ -10,8 +10,7 @@
 #' SpatRaster -> im
 
 as.im.SpatRaster <- function(X, ...) {
-  spatstat.geom::needpackage("terra",
-                             purpose="to convert 'SpatRaster' objects")
+  needpack("terra", "to convert 'SpatRaster' objects")
   if (!terra::hasValues(X))
     stop("values are required in the SpatRaster object", call.=FALSE)
   if (terra::is.rotated(X))
@@ -22,8 +21,10 @@ as.im.SpatRaster <- function(X, ...) {
   e <- as.vector(terra::ext(X))
   g <- as.list(X, geom=TRUE)
   if (is.factor(X)) {
-    v <- matrix(as.data.frame(X)[, 1], nrow=g$nrows, ncol=g$ncols, byrow=TRUE)
-    v <- factor(v, levels=levels(X))
+    v <- matrix(as.data.frame(X)[, 1L],
+                nrow=g$nrows, ncol=g$ncols, byrow=TRUE)
+    levX <- levels(X)[[1L]][["label"]]
+    v <- factor(v, levels=levX)
   } else {
     v <- as.matrix(X, wide=TRUE)
   }
@@ -39,8 +40,7 @@ setAs("SpatRaster", "im", function(from) as.im.SpatRaster(from))
 #' SpatialGridDataFrame -> im
 
 as.im.SpatialGridDataFrame <- function(X, ...) {
-  spatstat.geom::needpackage("sp",
-                          purpose="to convert 'SpatialGridDataFrame' objects")
+  needpack("sp", "to convert 'SpatialGridDataFrame' objects")
   xi <- sp::as.image.SpatialGridDataFrame(X)
   spatstat.geom::im(t(xi$z), xcol=xi$x, yrow=xi$y)
 }
@@ -53,8 +53,7 @@ setAs("SpatialGridDataFrame", "im",
 #' im -> SpatialGridDataFrame
 
 as.SpatialGridDataFrame.im <- function(from) {
-  spatstat.geom::needpackage("sp",
-                             purpose="to create 'SpatialGridDataFrame' objects")
+  needpack("sp", "to create 'SpatialGridDataFrame' objects")
   offset <- c(from$xcol[1L], from$yrow[1L])
   cellsize <- c(from$xstep, from$ystep)
   dim <- from$dim[2:1]

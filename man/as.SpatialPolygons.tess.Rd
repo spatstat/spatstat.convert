@@ -22,11 +22,11 @@ as.SpatialPolygons.tess(from)
 
 \author{\edzer and \roger}
 \examples{
-if (require("sp", quietly=TRUE)) {
+% if (require("sp", quietly=TRUE)) {
   A <- tess(xgrid=0:4,ygrid=0:4)
   A_sp <- as(A, "SpatialPolygons")
   plot(A_sp)
   text(coordinates(A_sp), labels=row.names(A_sp), cex=0.6)
-}
+% }
 }
 \keyword{spatial}

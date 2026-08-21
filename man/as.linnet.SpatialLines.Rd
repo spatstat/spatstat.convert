@@ -73,18 +73,15 @@
   \code{\link[spatstat.linnet]{as.linnet}}
 }
 \examples{
-  if(require("sp", quietly=TRUE)) {
-    ## from the sp vignette:
-    l1 <- cbind(c(1,2,3),c(3,2,2))
-    l2 <- l1 + 0.05
-    S1 <- Line(l1)
-    S2 <- Line(l2)
-    S <- Lines(list(S1, S2), ID="a")
+%  if(require("sp", quietly=TRUE)) {
+    s1 <- cbind(c(1,2,3,4),c(3,2,2,1))
+    s2 <- s1 + 0.05
+    S <- SpatialLines(list(Lines(list(Line(s1), Line(s2)), ID="a")))
     L <- as.linnet(S, fuse=FALSE)
     print(max(vertexdegree(L)))
     ## extract data associated with each network segment
     head(marks(as.psp(L)))
-  }
+%  }
 }
 \keyword{spatial}
 \keyword{manip}

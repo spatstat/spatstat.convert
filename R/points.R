@@ -2,14 +2,14 @@
 #'
 #'  Conversion of point patterns
 #'
-#' Last edit: 2026/08/20 Adrian Baddeley
+#' Last edit: 2026/08/21 Adrian Baddeley
 
 #' (1) sf, sp -> spatstat
 
 as.ppp.sf <- function(X, ..., fatal=TRUE, warn=TRUE) {
   if(!inheritsSF(X))
     stop("Expecting an object of class 'sf' or 'sfc'", call.=FALSE)
-  needpackage("sf", purpose="to convert 'sf' objects")
+  needpack("sf", "to convert 'sf' objects")
   stipulateProjected(X, fatal=fatal, warn=warn)
   Y <- spatstat.geom::as.ppp(sf::st_geometry(X))
   if (sf::st_dimension(X[1, ]) == 2) 
@@ -21,7 +21,7 @@ as.ppp.sf <- function(X, ..., fatal=TRUE, warn=TRUE) {
 setAs("sf", "ppp", function(from) as.ppp.sf(from))
 
 as.ppp.SpatialPoints <- function(X, W=NULL, ..., fatal=TRUE) {
-  needpackage("sp", purpose="to convert 'SpatialPoints' objects")
+  needpack("sp", "to convert 'SpatialPoints' objects")
   stipulateProjected(X, fatal=fatal)
   if(is.null(W)) {
     bb <- sp::bbox(X)
@@ -40,7 +40,7 @@ setAs("SpatialPoints", "ppp", function(from) as.ppp.SpatialPoints(from))
 #' tweaked by Adrian Baddeley 20260820
 
 as.ppp.SpatialPointsDataFrame <- function(X, W=NULL, ..., fatal=TRUE) {
-  needpackage("sp", purpose="to convert 'SpatialPointsDataFrame' objects")
+  needpack("sp", "to convert 'SpatialPointsDataFrame' objects")
   stipulateProjected(X, fatal=fatal)
   if(is.null(W)) {
     bb <- sp::bbox(X)
@@ -61,9 +61,9 @@ setAs("SpatialPointsDataFrame", "ppp", function(from) as.ppp.SpatialPointsDataFr
 #' 
 
 as.SpatialPoints.ppp <- function(from) {
-  needpackage("sp", purpose="to create 'SpatialPoints' objects")
+  needpack("sp", "to create 'SpatialPoints' objects")
   ## ensure coordinates are not expressed in a multiple of a unit
-  from <- rescale(from) 
+  from <- spatstat.geom::rescale(from) 
   crds <- cbind(from$x, from$y)
   W <- spatstat.geom::Window(from)
   if(spatstat.geom::is.rectangle(W)) {
@@ -78,7 +78,7 @@ as.SpatialPoints.ppp <- function(from) {
 setAs("ppp", "SpatialPoints", as.SpatialPoints.ppp)
 
 as.SpatialPointsDataFrame.ppp <- function(from) {
-  needpackage("sp", purpose="to create 'SpatialPoints' objects")
+  needpack("sp", "to create 'SpatialPoints' objects")
   SP <- as(from, "SpatialPoints")
   m <- spatstat.geom::marks(from)
   if(!is.null(m) && !is.data.frame(m)) m <- data.frame(marks=m)
@@ -88,7 +88,7 @@ as.SpatialPointsDataFrame.ppp <- function(from) {
 setAs("ppp", "SpatialPointsDataFrame", as.SpatialPointsDataFrame.ppp)
 
 as.SpatialGridDataFrame.ppp <- function(from) {
-  needpackage("sp", purpose="to create 'SpatialGridDataFrame' objects")
+  needpack("sp", "to create 'SpatialGridDataFrame' objects")
   w <- spatstat.geom::Window(from)
   if(!spatstat.geom::is.mask(w))
     stop("window is not a binary pixel mask")

@@ -1,11 +1,10 @@
 Package: spatstat.convert
 Type: Package
 Title: Extension to 'spatstat' for Converting Data Formats
-Version: 0.0-2
-Date: 2026-10-20
-Depends: R (>= 3.4.0), spatstat (>= 3.6-2), spatstat.geom (>= 3.8-2), spatstat.linnet (>= 3.5-3), stats, graphics, methods
+Version: 0.0-3
+Date: 2026-10-21
+Depends: R (>= 3.4.0), spatstat (>= 3.6-2), spatstat.geom (>= 3.8-2), spatstat.linnet (>= 3.5-3), terra (>= 1.7-83), sp (>= 2.1), sf (>= 1.0-21), stats, graphics, methods
 Imports: spatstat.utils (>= 3.2-4), spatstat.univar (>= 3.2-0)
-Suggests: terra (>= 1.7-83), sp (>= 2.1), sf (>= 1.0-21)
 Authors@R: c(person("Adrian", "Baddeley", 
                     role = c("aut", "cre"),
        	            email = "Adrian.Baddeley@curtin.edu.au"),

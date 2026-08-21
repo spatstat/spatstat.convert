@@ -13,8 +13,8 @@
   This package provides functions for converting spatial data objects
   between different formats supported in the packages
   \pkg{spatstat}, \pkg{sf}, \pkg{sp} and \pkg{terra}.
-  It depends on the \pkg{spatstat} package
-  and Suggests the other packages.
+%  It depends on the \pkg{spatstat} package
+%  and Suggests the other packages.
   
   An object \code{X} can be converted to a new class \code{"foo"} can use the
   S4 style syntax \code{as(X, "foo")}. If \code{"foo"} is a class in the

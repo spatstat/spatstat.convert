@@ -59,7 +59,7 @@ as.SpatialLines.psp(from)
 
 \author{\edzer and \roger}
 \examples{
-if (require("sp", quietly=TRUE)) {
+% if (require("sp", quietly=TRUE)) {
   data(meuse.riv)
   mr <- Line(meuse.riv)
   mr_psp <- as(mr, "psp")
@@ -67,6 +67,6 @@ if (require("sp", quietly=TRUE)) {
   plot(mr_psp)
   xx_back <- as(mr_psp, "SpatialLines")
   plot(xx_back)
-}
+% }
 }
 \keyword{spatial}
