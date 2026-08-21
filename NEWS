@@ -1,14 +1,88 @@
 
+        CHANGES IN spatstat.convert VERSION 0.0-3
+
+OVERVIEW
+
+    o Changed package dependencies.
+
+
+        CHANGES IN spatstat.convert VERSION 0.0-2
+
+OVERVIEW
+
+    o Changed package internals.
+
+
+        CHANGES IN spatstat.convert VERSION 0.0-1
+
+OVERVIEW
+
+    o Added many methods.
+
+NEW FUNCTIONS
+
+    o as.im.SpatialGridDataFrame
+    Convert pixel image from 'SpatialGridDataFrame' to 'im'
+    
+    o as.SpatialGridDataFrame.im
+    Convert pixel image from 'im' to 'SpatialGridDataFrame'
+
+    o as.SpatialLines.psp
+    Convert line segment pattern from 'psp' to 'SpatialLines'
+
+    o as.psp.SpatialLines
+    Convert 'SpatialLines' to line segment pattern 'psp' 
+
+    o as.psp.SpatialLinesDataFrame
+    Convert 'SpatialLinesDataFrame' to line segment pattern 'psp' 
+
+    o as.linnet.SpatialLinesDataFrame
+    Convert 'SpatialLinesDataFrame' to linear network 'linnet'
+
+    o as.owin.SpatialPolygons
+    Convert 'SpatialPolygons' to 'owin'
+    
+    o as.owin.SpatialGridDataFrame
+    Convert raster region from 'SpatialGridDataFrame' to 'owin'
+
+    o as.owin.SpatialPixelsDataFrame
+    Convert raster region from 'SpatialPixelsDataFrame' to 'owin'
+
+    o as.SpatialPolygons.tess
+    Convert the list of tiles of a tessellation to a SpatialPolygons object.
+
+    o as.SpatialPolygons.owin
+    Convert 'owin' to 'SpatialPolygons' object.
+
+    o as.SpatialGridDataFrame.owin
+    Convert 'owin' to 'SpatialGridDataFrame' object.
+
+    o as.ppp.SpatialPoints
+    Convert point pattern 'SpatialPoints' to 'ppp'    
+
+    o as.ppp.SpatialPointsDataFrame
+    Convert point pattern 'SpatialPointsDataFrame' to 'ppp'    
+
+    o as.SpatialPoints.ppp
+    Convert point pattern 'ppp' to 'SpatialPoints'
+
+    o as.SpatialPointsDataFrame.ppp
+    Convert point pattern 'ppp' to 'SpatialPointsDataFrame'
+
+    o as.SpatialGridDataFrame.ppp
+    Convert point pattern 'ppp' to 'SpatialGridDataFrame'
+
         CHANGES IN spatstat.convert VERSION 0.0-0
 
 OVERVIEW
 
     o Package initialised.
 
-SIGNIFICANT USER-VISIBLE CHANGES
+NEW FUNCTIONS
 
-    o nothing yet.
+    o as.im.SpatRaster
+    Convert pixel image in 'terra' format 'SpatRaster' to 'spatstat' format 'im'
 
-BUG FIXES
-
-    o no bugs to fix yet; working on that.
+    o as.ppp.sf
+    Convert point pattern in 'sf' format to 'spatstat' format 'ppp'.
+    
