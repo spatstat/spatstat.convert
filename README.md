@@ -4,10 +4,9 @@
 
 ## Utilities for converting between spatial data formats
 
-This package is under development.
+_Under development_
 
-It will enable users to convert spatial data
+This package enables users to convert spatial data
 between the formats used in the `spatstat` family of packages
 and the formats used in the packages `sp`, `sf` and `terra`.
-
 
