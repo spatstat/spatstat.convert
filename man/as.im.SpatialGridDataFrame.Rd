@@ -55,9 +55,10 @@
   \edzer and \roger. Adapted by \adrian.
 }
 \examples{
-% run <- FALSE
-% if (require("sp", quietly=TRUE)) run <- TRUE
-% if (run) {
+run <- FALSE
+qt <- FALSE
+if (require("sp", quietly=qt)) run <- TRUE
+if (run) {
   ## Extract an example SpatialGridDataFrame and plot it
   data(meuse.grid) # A data.frame
   gridded(meuse.grid) = ~x+y # Now a SpatialPixelsDataFrame
@@ -74,9 +75,9 @@
   \dontrun{
    image(mg2, axes=TRUE)
   }
-% }
-% run <- run && require(terra, quietly=TRUE)
-% if (run) {
+}
+run <- run && require(terra, quietly=qt)
+if (run) {
   ## Convert SpatialGridDataFrame -> SpatRaster -> im and plot it
   r <- as(mg2, "SpatRaster")
   rim <- as.im(r)
@@ -86,7 +87,7 @@
   values(rr) <- factor(letters[11:16])
   ii <- as.im(rr)
   plot(ii)
-% }
+}
 }
 \keyword{spatial}
 \keyword{manip}

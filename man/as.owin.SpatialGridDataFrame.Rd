@@ -91,33 +91,32 @@ as.SpatialGridDataFrame.owin(from)
   \code{\link{as.SpatialPolygons.tess}}
 }
 \examples{
-% run <- FALSE
-% if (require("sp", quietly=TRUE)) run <- TRUE
-% if (run) {
-  ## SpatialPixelsDataFrame -> owin
-  data(meuse.grid) # A data.frame
-  gridded(meuse.grid) = ~x+y # Now a SpatialPixelsDataFrame
-  mg_owin <- as(meuse.grid, "owin")
-  mg_owin
-  ## SpatialGridDataFrame -> owin
-  fullgrid(meuse.grid) <- TRUE # Now a SpatialGridDataFrame
-  mg_owin2 <- as(meuse.grid, "owin")
-  ## SpatialPolygons region with a hole
-  ho_sp <- SpatialPolygons(list(Polygons(list(Polygon(cbind(c(0,1,1,0,0),
-    c(0,0,1,1,0))), Polygon(cbind(c(0.6,0.4,0.4,0.6,0.6), 
-    c(0.2,0.2,0.4,0.4,0.2)), hole=TRUE)), ID="ho")))
-  plot(ho_sp, col="red", pbg="pink")
-  ## SpatialPolygons -> owin
-  ho <- as(ho_sp, "owin")
-  plot(ho)
-  ## Define owin directly and check they are identical
-  ho_orig <- owin(poly=list(list(x=c(0,1,1,0), y=c(0,0,1,1)),
-    list(x=c(0.6,0.4,0.4,0.6), y=c(0.2,0.2,0.4,0.4))))
-  identical(ho, ho_orig)
-  ## owin -> SpatialPolygons
-  ho_sp1 <- as(ho, "SpatialPolygons")
-  all.equal(ho_sp, ho_sp1, check.attributes=FALSE)
-% }
+  qt <- FALSE
+  if (require("sp", quietly=qt)) {
+    ## SpatialPixelsDataFrame -> owin
+    data(meuse.grid) # A data.frame
+    gridded(meuse.grid) = ~x+y # Now a SpatialPixelsDataFrame
+    mg_owin <- as(meuse.grid, "owin")
+    mg_owin
+    ## SpatialGridDataFrame -> owin
+    fullgrid(meuse.grid) <- TRUE # Now a SpatialGridDataFrame
+    mg_owin2 <- as(meuse.grid, "owin")
+    ## SpatialPolygons region with a hole
+    ho_sp <- SpatialPolygons(list(Polygons(list(Polygon(cbind(c(0,1,1,0,0),
+      c(0,0,1,1,0))), Polygon(cbind(c(0.6,0.4,0.4,0.6,0.6), 
+      c(0.2,0.2,0.4,0.4,0.2)), hole=TRUE)), ID="ho")))
+    plot(ho_sp, col="red", pbg="pink")
+    ## SpatialPolygons -> owin
+    ho <- as(ho_sp, "owin")
+    plot(ho)
+    ## Define owin directly and check they are identical
+    ho_orig <- owin(poly=list(list(x=c(0,1,1,0), y=c(0,0,1,1)),
+                         list(x=c(0.6,0.4,0.4,0.6), y=c(0.2,0.2,0.4,0.4))))
+    identical(ho, ho_orig)
+    ## owin -> SpatialPolygons
+    ho_sp1 <- as(ho, "SpatialPolygons")
+    all.equal(ho_sp, ho_sp1, check.attributes=FALSE)
+  }
 }
 \keyword{spatial}
 \keyword{manip}

@@ -39,13 +39,14 @@
   The reverse operation is \code{\link[terra]{rast}}.
 }
 \examples{
-%  if(require(terra)) {
+qt <- FALSE
+if(require(terra, quietly=qt)) {
     f <- system.file("ex/elev.tif", package="terra")
     x <- rast(f)
     plot(x)
     z <- as.im(x)
     plot(z)
-%  }
+}
 }
 \keyword{spatial}
 \keyword{manip}

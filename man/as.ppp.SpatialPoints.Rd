@@ -73,32 +73,33 @@ and finally converts the TRUE/FALSE grid to a \code{SpatialGridDataFrame}.}
 
 \author{\edzer and \roger}
 \examples{
-% if (require("sp", quietly=TRUE)) {
-  ## Convert SpatialPointsDataFrame into a marked ppp
-  data(meuse)
-  coordinates(meuse) = ~x+y
-  meuse_ppp <- as(meuse, "ppp")
-  meuse_ppp # Window is the bounding rectangle
-  plot(meuse_ppp, which.marks = "zinc")
-  ## Convert SpatialPoints into an unmarked ppp
-  meuse2 <- as(meuse, "SpatialPoints")
-  as(meuse2, "ppp")
-  ## Get sampling region in grid format and assign it as observation window
-  data(meuse.grid)
-  gridded(meuse.grid) <- ~x+y
-  mg_owin <- as(meuse.grid, "owin")
-  Window(meuse_ppp) <- mg_owin
-  meuse_ppp # Window is now a binary image mask (TRUE/FALSE grid)
-  plot(meuse_ppp, which.marks = "zinc")
-  ## Convert marked ppp back to SpatialPointsDataFrame
-  rev_ppp_SPDF <- as.SpatialPointsDataFrame.ppp(meuse_ppp)
-  summary(rev_ppp_SPDF)
-  ## Convert marked ppp back to SpatialPoints (discarding marks)
-  rev_ppp_SP <- as.SpatialPoints.ppp(meuse_ppp)
-  summary(rev_ppp_SP)
-  ## Convert marked ppp back to SpatialGridDataFrame (extracting the window grid)
-  rev_ppp_SGDF <- as.SpatialGridDataFrame.ppp(meuse_ppp)
-  summary(rev_ppp_SGDF)
-% }
+  qt <- FALSE
+  if (require("sp", quietly=qt)) {
+    ## Convert SpatialPointsDataFrame into a marked ppp
+    data(meuse)
+    coordinates(meuse) = ~x+y
+    meuse_ppp <- as(meuse, "ppp")
+    meuse_ppp # Window is the bounding rectangle
+    plot(meuse_ppp, which.marks = "zinc")
+    ## Convert SpatialPoints into an unmarked ppp
+    meuse2 <- as(meuse, "SpatialPoints")
+    as(meuse2, "ppp")
+    ## Get sampling region in grid format and assign it as observation window
+    data(meuse.grid)
+    gridded(meuse.grid) <- ~x+y
+    mg_owin <- as(meuse.grid, "owin")
+    Window(meuse_ppp) <- mg_owin
+    meuse_ppp # Window is now a binary image mask (TRUE/FALSE grid)
+    plot(meuse_ppp, which.marks = "zinc")
+    ## Convert marked ppp back to SpatialPointsDataFrame
+    rev_ppp_SPDF <- as.SpatialPointsDataFrame.ppp(meuse_ppp)
+    summary(rev_ppp_SPDF)
+    ## Convert marked ppp back to SpatialPoints (discarding marks)
+    rev_ppp_SP <- as.SpatialPoints.ppp(meuse_ppp)
+    summary(rev_ppp_SP)
+    ## Convert marked ppp back to SpatialGridDataFrame (extracting window grid)
+    rev_ppp_SGDF <- as.SpatialGridDataFrame.ppp(meuse_ppp)
+    summary(rev_ppp_SGDF)
+  }
 }
 \keyword{spatial}

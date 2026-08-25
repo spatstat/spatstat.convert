@@ -29,9 +29,10 @@ used as well.
 \usage{
 \S3method{as.psp}{Line}(x, \dots, window=NULL, marks=NULL, fatal)
 \S3method{as.psp}{Lines}(x, \dots, window=NULL, marks=NULL, fatal)
-\S3method{as.psp}{SpatialLines}(x, \dots, window=NULL, marks=NULL, characterMarks
-                 = FALSE, fatal)
-\S3method{as.psp}{SpatialLinesDataFrame}(x, \dots, window=NULL, marks=NULL, fatal)
+\S3method{as.psp}{SpatialLines}(x, \dots, window=NULL, marks=NULL,
+                  characterMarks=FALSE, fatal)
+\S3method{as.psp}{SpatialLinesDataFrame}(x, \dots, window=NULL,
+                  marks=NULL, fatal)
 as.SpatialLines.psp(from)
 }
 \arguments{
@@ -59,14 +60,15 @@ as.SpatialLines.psp(from)
 
 \author{\edzer and \roger}
 \examples{
-% if (require("sp", quietly=TRUE)) {
-  data(meuse.riv)
-  mr <- Line(meuse.riv)
-  mr_psp <- as(mr, "psp")
-  mr_psp
-  plot(mr_psp)
-  xx_back <- as(mr_psp, "SpatialLines")
-  plot(xx_back)
-% }
+  qt <- FALSE
+  if (require("sp", quietly=qt)) {
+    data(meuse.riv)
+    mr <- Line(meuse.riv)
+    mr_psp <- as(mr, "psp")
+    mr_psp
+    plot(mr_psp)
+    xx_back <- as(mr_psp, "SpatialLines")
+    plot(xx_back)
+  }
 }
 \keyword{spatial}

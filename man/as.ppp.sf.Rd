@@ -42,15 +42,16 @@
   \code{\link[spatstat.geom]{as.ppp}}.
 }
 \examples{
-%  if(require(sf, quietly=TRUE) && require(sp, quietly=TRUE)) {
-   ## point pattern dataset in 'sp' format
-   data(meuse)
-   coordinates(meuse) = ~x+y
-   ## convert to 'sf' format
-   maas <- st_as_sf(meuse)
-   ## convert to 'spatstat' format
-   z <- as.ppp(maas)
-%  }
+  qt <- FALSE
+  if(require(sf, quietly=qt) && require(sp, quietly=qt)) {
+    ## point pattern dataset in 'sp' format
+    data(meuse)
+    coordinates(meuse) = ~x+y
+    ## convert to 'sf' format
+    maas <- st_as_sf(meuse)
+    ## convert to 'spatstat' format
+    z <- as.ppp(maas)
+  }
 }
 \keyword{spatial}
 \keyword{manip}

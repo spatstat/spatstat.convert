@@ -2,7 +2,7 @@ import(stats,graphics,methods)
 import(spatstat.utils,spatstat.univar)
 import(spatstat.geom,spatstat.linnet,spatstat)
 
-import(sf, sp, terra)
+# import(sf, sp, terra)
 
 # Export all names unless they start with a dot
 exportPattern("^[^.]")

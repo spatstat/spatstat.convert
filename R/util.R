@@ -3,7 +3,7 @@
 #'
 #'  Utility functions
 #' 
-#'  Last edit: 2026/08/21 Adrian Baddeley
+#'  Last edit: 2026/08/25 Adrian Baddeley
 
 inheritsSF <- function(X) { inherits(X, c("sf", "sfc")) }
 
@@ -23,7 +23,5 @@ stipulateProjected <- function(X, fatal=FALSE, warn=TRUE) {
 }
 
 needpack <- function(pkg, why) {
-##  spatstat.geom::needpackage(pkg, purpose=why)
-## currently all packages are Depends rather than Suggests  
-  return(TRUE)
+  spatstat.geom::needpackage(pkg, purpose=why)
 }
