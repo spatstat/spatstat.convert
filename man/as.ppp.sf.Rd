@@ -43,7 +43,8 @@
 }
 \examples{
   qt <- FALSE
-  if(require(sf, quietly=qt) && require(sp, quietly=qt)) {
+  if(require(sf, quietly=qt)) {
+% && require(sp, quietly=qt)) {
     ## point pattern dataset in 'sp' format
     data(meuse)
     coordinates(meuse) = ~x+y

@@ -55,9 +55,9 @@
   \edzer and \roger. Adapted by \adrian.
 }
 \examples{
-run <- FALSE
+run <- TRUE
 qt <- FALSE
-if (require("sp", quietly=qt)) run <- TRUE
+% if (require("sp", quietly=qt)) run <- TRUE
 if (run) {
   ## Extract an example SpatialGridDataFrame and plot it
   data(meuse.grid) # A data.frame

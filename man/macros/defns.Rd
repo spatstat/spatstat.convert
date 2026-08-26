@@ -5,3 +5,4 @@
 \newcommand{\edzer}{Edzer Pebesma \email{edzer.pebesma@uni-muenster.de}}
 \newcommand{\roger}{Roger Bivand}
 \newcommand{\mike}{Michael Sumner}
+\newcommand{\mehdi}{Mehdi Moradi}

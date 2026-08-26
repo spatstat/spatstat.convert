@@ -73,8 +73,8 @@ and finally converts the TRUE/FALSE grid to a \code{SpatialGridDataFrame}.}
 
 \author{\edzer and \roger}
 \examples{
-  qt <- FALSE
-  if (require("sp", quietly=qt)) {
+%  qt <- FALSE
+%  if (require("sp", quietly=qt)) {
     ## Convert SpatialPointsDataFrame into a marked ppp
     data(meuse)
     coordinates(meuse) = ~x+y
@@ -100,6 +100,6 @@ and finally converts the TRUE/FALSE grid to a \code{SpatialGridDataFrame}.}
     ## Convert marked ppp back to SpatialGridDataFrame (extracting window grid)
     rev_ppp_SGDF <- as.SpatialGridDataFrame.ppp(meuse_ppp)
     summary(rev_ppp_SGDF)
-  }
+%  }
 }
 \keyword{spatial}

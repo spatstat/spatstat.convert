@@ -55,13 +55,10 @@ as.SpatialLines.psp(from)
   will fool the system to think that the data is in local planar coordinates.
   This is probably not a good idea!
 }
-
-
-
 \author{\edzer and \roger}
 \examples{
-  qt <- FALSE
-  if (require("sp", quietly=qt)) {
+%  qt <- FALSE
+%  if (require("sp", quietly=qt)) {
     data(meuse.riv)
     mr <- Line(meuse.riv)
     mr_psp <- as(mr, "psp")
@@ -69,6 +66,6 @@ as.SpatialLines.psp(from)
     plot(mr_psp)
     xx_back <- as(mr_psp, "SpatialLines")
     plot(xx_back)
-  }
+%  }
 }
 \keyword{spatial}

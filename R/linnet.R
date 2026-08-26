@@ -1,14 +1,25 @@
-## Convert 'SpatialLines*' object to spatstat 'linnet' object
-## 
-## For 'SpatialLinesDataFrame', the data columns are copied 
-## to the network as marks associated with the network segments.
-##
-## If fuse=TRUE, the code searches for pairs of points with the same (x,y)
-##               coordinates that occur in different polylines,
-##               and merges them together as identical vertices of the network.
-##
-##    Last edit: 2026/08/21 Adrian Baddeley 
-##    Edit: 2020/04/20 Adrian Baddeley 
+#' linnet.R
+#'
+#'  Convert data representing a linear network
+#'
+#'  as.linnet.SpatialLines
+#'  as.linnet.sf
+#'
+#'  --------------------------------------------------------
+#' 
+#'    Contributions from: Ege Rubak, Mehdi Moradi
+#'    Last edit: 2026/08/26 Adrian Baddeley
+#'
+#'  ---------------------------------------------------------
+#' as.linnet.SpatialLines
+#' Convert 'SpatialLines*' object to spatstat 'linnet' object
+#' 
+#' For 'SpatialLinesDataFrame', the data columns are copied 
+#' to the network as marks associated with the network segments.
+#'
+#' If fuse=TRUE, the code searches for pairs of points with the same (x,y)
+#'               coordinates that occur in different polylines,
+#'               and merges them together as identical vertices of the network.
 
 as.linnet.SpatialLines <- function(X, ..., fuse=TRUE) {
   needpack("sp", "to handle 'SpatialLines' objects")
@@ -98,4 +109,91 @@ setAs("SpatialLines", "linnet",
 
 setAs("SpatialLinesDataFrame", "linnet",
       function(from) as.linnet.SpatialLines(from))
+
+
+#' --------------------------------------------------------------
+#' as.linnet.sf
+#'
+#' 
+
+as.linnet.sfc <- as.linnet.sf <- function(X, ...) {
+  needpack("sf", "to handle sf objects")
+  ## validate and extract geometry
+  if(inherits(X, "sf")) {
+    g <- sf::st_geometry(X)
+  } else if(inherits(X, "sfc")) {
+    g <- X
+  } else {
+    stop("'X' must be an object of class 'sf' or 'sfc'", call.=FALSE)
+  }
+  ## Check that coordinates are planar
+  stipulateProjected(g)
+  
+  ## Keep/cast linear geometries
+  g <- sf::st_cast(g, "MULTILINESTRING", warn = FALSE)
+  g <- sf::st_cast(g, "LINESTRING", warn = FALSE)
+  
+  ## Extract coordinates
+  crd <- sf::st_coordinates(g)
+  
+  ## LINESTRING identifier
+  id_col <- if ("L1" %in% colnames(crd)) "L1" else
+    stop("Could not identify individual LINESTRING geometries", call.=FALSE)
+  
+  ids <- crd[, id_col]
+  
+  ## Split coordinates by line
+  lines <- split(
+    data.frame(x = crd[, "X"], y = crd[, "Y"]),
+    ids
+  )
+  
+  ## Convert every consecutive pair of coordinates to a segment
+  segs <- do.call(
+    rbind,
+    lapply(lines, function(z) {
+      
+      if (nrow(z) < 2)
+        return(NULL)
+      
+      data.frame(
+        x0 = z$x[-nrow(z)],
+        y0 = z$y[-nrow(z)],
+        x1 = z$x[-1],
+        y1 = z$y[-1]
+      )
+    })
+  )
+  
+  if (is.null(segs) || nrow(segs) == 0) {
+    stop("No line segments could be extracted from the sf object", call.=FALSE)
+  }
+  
+  ## Observation window
+  xr <- range(c(segs$x0, segs$x1), finite = TRUE)
+  yr <- range(c(segs$y0, segs$y1), finite = TRUE)
+  
+  W <- owin(xrange = xr, yrange = yr)
+  
+  ## spatstat line-segment pattern
+  S <- psp(
+    x0 = segs$x0,
+    y0 = segs$y0,
+    x1 = segs$x1,
+    y1 = segs$y1,
+    window = W,
+    check = TRUE
+  )
+  
+  ## Convert to linear network
+  L <- as.linnet(S, ...)
+  
+  return(L)
+}
+
+setAs("sf", "linnet",
+      function(from) as.linnet.sf(from))
+
+setAs("sfc", "linnet",
+      function(from) as.linnet.sf(from))
 

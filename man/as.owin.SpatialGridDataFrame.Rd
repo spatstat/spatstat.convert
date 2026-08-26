@@ -91,8 +91,8 @@ as.SpatialGridDataFrame.owin(from)
   \code{\link{as.SpatialPolygons.tess}}
 }
 \examples{
-  qt <- FALSE
-  if (require("sp", quietly=qt)) {
+%  qt <- FALSE
+%  if (require("sp", quietly=qt)) {
     ## SpatialPixelsDataFrame -> owin
     data(meuse.grid) # A data.frame
     gridded(meuse.grid) = ~x+y # Now a SpatialPixelsDataFrame
@@ -116,7 +116,7 @@ as.SpatialGridDataFrame.owin(from)
     ## owin -> SpatialPolygons
     ho_sp1 <- as(ho, "SpatialPolygons")
     all.equal(ho_sp, ho_sp1, check.attributes=FALSE)
-  }
+%  }
 }
 \keyword{spatial}
 \keyword{manip}

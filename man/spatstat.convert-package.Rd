@@ -16,9 +16,9 @@
 %  It depends on the \pkg{spatstat} package
 %  and Suggests the other packages.
   
-  An object \code{X} can be converted to a new class \code{"foo"} can use the
+  An object \code{X} can be converted to a new class \code{"foo"} using the
   S4 style syntax \code{as(X, "foo")}. If \code{"foo"} is a class in the
-  \pkg{spatstat} package, then the conversion can also be writted in the
+  \pkg{spatstat} package, then the conversion can also be written in the
   S3 style \code{as.foo(X)}.
 
   Functions for converting \emph{to} \pkg{spatstat} data types:
@@ -26,6 +26,7 @@
     \code{\link{as.im.SpatialGridDataFrame}} \\
     \code{\link{as.im.SpatRaster}} \\
     \code{\link{as.linnet.SpatialLines}} \\
+    \code{\link{as.linnet.sf}} \\
     \code{\link{as.owin.SpatialGridDataFrame}} \\
     \code{\link{as.owin.SpatialPixelsDataFrame}} \\
     \code{\link{as.owin.SpatialPolygons}} \\
@@ -51,7 +52,7 @@
   }
 }
 \author{
-  \adrian, \ege, \rolf, \edzer, \roger, \mike,
+  \adrian, \ege, \rolf, \edzer, \roger, \mike, \mehdi,
   Matthew Lewis and Mathieu Rajerison.
 }
 \keyword{package}
