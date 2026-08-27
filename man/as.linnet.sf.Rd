@@ -3,9 +3,8 @@
 \alias{as.linnet.sfc}
 \alias{coerce,sf,linnet-method}
 \alias{coerce,sfc,linnet-method}
-
 \title{
-  Convert sf Object to Linear Network
+  Convert 'sf' Object to Linear Network in 'spatstat'
 }
 \description{
   Convert an object of class \code{sf} or
@@ -21,24 +20,27 @@
 }
 }
 \usage{
-  \S3method{as.linnet}{sf}(X, \dots)
-  \S3method{as.linnet}{sfc}(X, \dots)
+  \S3method{as.linnet}{sf}(X, \dots, fuse=TRUE)
+  \S3method{as.linnet}{sfc}(X, \dots, fuse=TRUE)
 }
 \arguments{
   \item{X}{
     Object of class \code{sf} or \code{sfc} to be converted.
   }
   \item{\dots}{
-    Arguments passed to \code{\link[spatstat.linnet]{as.linnet.psp}}
-    controlling the conversion procedure.
+    Ignored.
+  }
+  \item{fuse}{
+    Logical value indicating whether to join different curves
+    which have a common vertex.
   }
 }
 \details{
-  The function \code{as.linnet.sfc} converts an object of class \code{sf}
+  These functions convert an object of class \code{sf}
   or \code{sfc} into an object of class \code{linnet}.
-  It is both an S3 method for the \pkg{spatstat} generic function
+  They can be used both as S3 methods for the \pkg{spatstat} generic function
   \code{\link[spatstat.linnet]{as.linnet}} which can be called in the
-  syntax \code{as.linnet(X)}, and an S4 coercion method which can be
+  syntax \code{as.linnet(X)}, and as S4 coercion methods which can be
   called in the syntax \code{as(X, "linnet")}.
 
   An object of class \code{sf}
@@ -47,13 +49,16 @@
   a city. An object of class \code{linnet} in the \pkg{spatstat} package
   represents a linear network, such as a road network.
 
-  The object \code{X} will first be converted into a spatial pattern
-  of line segments, an object of class \code{"psp"} in the
-  \pkg{spatstat} package. Then
-  \code{\link[spatstat.linnet]{as.linnet.psp}} will be called to convert
-  the line segment pattern into a linear network.
-  Options for this conversion are explained in the help for
-  \code{\link[spatstat.linnet]{as.linnet.psp}}.
+  If \code{fuse=FALSE}, each line in \code{X}
+  will be treated as if it were disconnected from the others.
+  The result is a network that consists of many disconnected sub-networks,
+  equivalent to the list of lines.
+  
+  If \code{fuse=TRUE} (the default), the code will
+  search for identical pairs of vertices occurring in different
+  lines, and will treat them as identical vertices,
+  effectively joining the two lines objects at this common
+  vertex.
 }
 \value{
   An object of class \code{linnet}.

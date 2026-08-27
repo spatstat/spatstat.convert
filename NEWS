@@ -1,4 +1,16 @@
 
+        CHANGES IN spatstat.convert VERSION 0.0-6
+
+OVERVIEW
+
+    o Added conversion from 'sf' to linear network class 'linnet'.
+
+NEW FUNCTIONS
+
+    o as.linnet.sf, as.linnet.sfc
+    Convert 'sf' or 'sfc' object representing a list of lines,
+    to a 'linnet' object representing a network.
+
         CHANGES IN spatstat.convert VERSION 0.0-5
 
 OVERVIEW

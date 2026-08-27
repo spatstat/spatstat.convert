@@ -5,6 +5,9 @@
 \alias{inheritsSP}
 \alias{owin2Polygons}
 \alias{needpack}
+\alias{islistdf}
+\alias{islistlistdf}
+\alias{lines2network}
 \description{
   Internal functions of the \pkg{spatstat.convert} package.
 }
@@ -14,6 +17,9 @@
   stipulateProjected(X, fatal, warn)
   owin2Polygons(x, id)
   needpack(pkg, why)
+  islistdf(z)
+  islistlistdf(z)
+  lines2network(XY, BB, DF, fuse)
 }
 \details{
   These internal functions should not be called directly by the user.
