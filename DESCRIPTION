@@ -1,8 +1,8 @@
 Package: spatstat.convert
 Type: Package
 Title: Extension to 'spatstat' for Converting Data Formats
-Version: 0.0-6
-Date: 2026-08-27
+Version: 1.0-0
+Date: 2026-08-28
 Depends: R (>= 3.4.0), spatstat (>= 3.6-2), spatstat.geom (>= 3.8-2), spatstat.linnet (>= 3.5-3), sp (>= 2.1), stats, graphics, methods
 Imports: spatstat.utils (>= 3.2-4), spatstat.univar (>= 3.2-0)
 Suggests: terra (>= 1.7-83), sf (>= 1.0-21)
@@ -21,9 +21,11 @@ Authors@R: c(person("Adrian", "Baddeley",
              person("Roger", "Bivand", role="aut"),
              person("Michael", "Sumner", role="ctb"),
              person("Matthew", "Lewis", role="ctb"),
-             person("Mathieu", "Rajerison", role="ctb"))
+             person("Mathieu", "Rajerison", role="ctb"),
+             person("Mehdi", "Moradi", role="ctb"))
 Maintainer: Adrian Baddeley <Adrian.Baddeley@curtin.edu.au>
 Description: Extension to the 'spatstat' package, enabling the user
-	     to convert data from other formats to `spatstat' formats.
+	     to convert spatial data between formats defined in `spatstat'
+	     and formats defined in 'sp', 'sf' and 'terra'.
 License: GPL (>= 2)
 ByteCompile: true

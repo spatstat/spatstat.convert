@@ -42,9 +42,8 @@
   \code{\link[spatstat.geom]{as.ppp}}.
 }
 \examples{
-  qt <- FALSE
+  qt <- TRUE
   if(require(sf, quietly=qt)) {
-% && require(sp, quietly=qt)) {
     ## point pattern dataset in 'sp' format
     data(meuse)
     coordinates(meuse) = ~x+y

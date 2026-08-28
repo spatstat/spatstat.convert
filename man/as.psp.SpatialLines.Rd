@@ -1,4 +1,4 @@
-\name{as.psp}
+\name{as.psp.SpatialLines}
 \alias{as.psp.Line}
 \alias{coerce,Line,psp-method}
 \alias{as.psp.Lines}
@@ -57,15 +57,12 @@ as.SpatialLines.psp(from)
 }
 \author{\edzer and \roger}
 \examples{
-%  qt <- FALSE
-%  if (require("sp", quietly=qt)) {
-    data(meuse.riv)
-    mr <- Line(meuse.riv)
-    mr_psp <- as(mr, "psp")
-    mr_psp
-    plot(mr_psp)
-    xx_back <- as(mr_psp, "SpatialLines")
-    plot(xx_back)
-%  }
+  data(meuse.riv)
+  mr <- Line(meuse.riv)
+  mr_psp <- as(mr, "psp")
+  mr_psp
+  plot(mr_psp)
+  xx_back <- as(mr_psp, "SpatialLines")
+  plot(xx_back)
 }
 \keyword{spatial}

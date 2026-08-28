@@ -56,8 +56,7 @@
 }
 \examples{
 run <- TRUE
-qt <- FALSE
-% if (require("sp", quietly=qt)) run <- TRUE
+qt <- TRUE
 if (run) {
   ## Extract an example SpatialGridDataFrame and plot it
   data(meuse.grid) # A data.frame

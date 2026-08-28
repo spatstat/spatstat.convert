@@ -39,7 +39,7 @@
   The reverse operation is \code{\link[terra]{rast}}.
 }
 \examples{
-qt <- FALSE
+qt <- TRUE
 if(require(terra, quietly=qt)) {
     f <- system.file("ex/elev.tif", package="terra")
     x <- rast(f)

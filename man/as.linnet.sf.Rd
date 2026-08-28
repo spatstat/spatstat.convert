@@ -70,7 +70,7 @@
   \code{\link[spatstat.linnet]{as.linnet}}
 }
 \examples{
-  qt <- FALSE
+  qt <- TRUE
   if(require(sf, quietly=qt)) {
     nc <- st_read(system.file("shape/nc.shp", package="sf"))
     b <- st_sfc(st_cast(st_geometry(nc)[[4]], "MULTILINESTRING"))
