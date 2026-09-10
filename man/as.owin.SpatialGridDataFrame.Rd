@@ -80,6 +80,16 @@ as.SpatialGridDataFrame.owin(from)
   In all cases, any data apart from the
   spatial region itself are discarded.
 }
+\value{
+  A spatial window
+  (object of class \code{"owin"} as defined in the \pkg{spatstat}
+  package)
+  or a collection of polygons
+  (object of class \code{"SpatialPolygons"}
+  as defined in the package \pkg{sp})
+  or a spatial grid (object of class \code{"SpatialGridDataFrame"} 
+  as defined in the package \pkg{sp}).
+}
 \note{
   When coercing a SpatialPolygons object to an owin object, full 
   topology checking is enabled by default. To avoid checking, set 

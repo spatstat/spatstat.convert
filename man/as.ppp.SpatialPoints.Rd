@@ -42,12 +42,24 @@ as.SpatialGridDataFrame.ppp(from)
   \item{fatal}{Logical value specifying whether a conversion error
     should result in a fatal error.}
 }
-\details{The main conversion is between \pkg{sp}s
-\code{SpatialPoints}/\code{SpatialPointsDataFrame} and \pkg{spatstat}s
-\code{ppp}. Conversion between \code{SpatialGridDataFrame} and \code{ppp} should
-rarely be used; using \code{\link{as.owin.SpatialGridDataFrame}} is more transparent.}
-
-\note{The \code{ppp} format requires an observation window which is the sampling
+\details{
+  The main conversion is between \pkg{sp}s
+  \code{SpatialPoints}/\code{SpatialPointsDataFrame} and \pkg{spatstat}s
+  \code{ppp}.
+  Conversion between \code{SpatialGridDataFrame} and \code{ppp} should
+  rarely be used; using \code{\link{as.owin.SpatialGridDataFrame}}
+  is more transparent.
+}
+\value{
+  A spatial point pattern
+  (object of class \code{"ppp"} as defined in the \pkg{spatstat}
+  package)
+  or an object of class \code{"SpatialPoints"},
+  \code{"SpatialPointsDataFrame"} or \code{"SpatialGridDataFrame"}
+  as defined in the package \pkg{sp}.
+}
+\note{
+  The \code{ppp} format requires an observation window which is the sampling
 region. The \pkg{sp} formats contain no such information and by default the
 bounding box of the points is simply used. This is almost never the correct
 thing to do! Rather, information about the sampling region should be converted

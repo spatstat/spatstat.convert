@@ -64,7 +64,8 @@
   attached to the line segments of the network. See the Examples.
 }
 \value{
-  An object of class \code{linnet}.
+  A linear network (object of class \code{linnet}
+  as defined in the \pkg{spatstat} package).
 }
 \author{
   \adrian.

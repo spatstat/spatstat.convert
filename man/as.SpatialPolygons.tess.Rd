@@ -19,7 +19,10 @@ as.SpatialPolygons.tess(from)
 \arguments{
   \item{from}{\pkg{spatstat} object of class \code{tess} to coerce from}
 }
-
+\value{
+  An object of class \code{"SpatialPolygons"}
+  as defined in the package \pkg{sp}.
+}
 \author{\edzer and \roger}
 \examples{
   A <- dirichlet(runifpoint(6))

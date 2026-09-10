@@ -1,7 +1,7 @@
 \name{as.im.SpatRaster}
 \alias{as.im.SpatRaster}
 \title{
-  Convert `terra' Raster Image to `spatstat' Image 
+  Convert 'terra' Raster Image to 'spatstat' Image 
 }
 \description{
   Given a raster image in the \code{SpatRaster} format of the \pkg{terra}

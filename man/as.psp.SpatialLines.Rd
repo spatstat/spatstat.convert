@@ -43,6 +43,13 @@ as.SpatialLines.psp(from)
   \item{characterMarks}{default FALSE, if TRUE, do not convert NULL marks to factor from character}
   \item{fatal}{formal coercion argument; ignored}
 }
+\value{
+  A spatial pattern of line segments
+  (object of class \code{"psp"} as defined in the \pkg{spatstat}
+  package)
+  or a collection of lines (object of class \code{"SpatialLines"}
+  or \code{"SpatialLinesDataFrame"} in the package \pkg{sp}).
+}
 \section{Warning}{
   In \pkg{spatstat} all spatial objects are assumed to be planar. This means
   that \pkg{spatstat} is not designed to work directly with geographic

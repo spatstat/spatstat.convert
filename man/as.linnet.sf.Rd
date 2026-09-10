@@ -61,7 +61,8 @@
   vertex.
 }
 \value{
-  An object of class \code{linnet}.
+  A linear network (object of class \code{linnet}
+  as defined in the \pkg{spatstat} package).
 }
 \author{
   \adrian.

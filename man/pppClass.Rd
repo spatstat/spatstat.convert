@@ -16,7 +16,7 @@
 % \alias{SpatialPolygons-class}
 % \alias{SpatialPoints-class}
 % \alias{SpatialPointsDataFrame-class}
-\title{Virtual Class "ppp" and Friends}
+\title{Virtual Class 'ppp' and Friends}
 \description{ Virtual S4 class definition for S3 classes in the spatstat package to allow S4-style coercion to these classes}
 \section{Objects from the Class}{A virtual Class: No objects may be created from it.}
 \author{\edzer}

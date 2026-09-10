@@ -32,6 +32,12 @@
   as shown in
   the example below.
 }
+\value{
+  Either a pixel image
+  (object of class \code{"im"} as defined in the \pkg{spatstat} package)
+  or an object of class \code{"SpatialGridDataFrame"} as defined in the
+  package \pkg{sp}.
+}
 \section{Warning}{
   In \pkg{spatstat} all spatial objects are assumed to be planar. This means
   that \pkg{spatstat} is not designed to work directly with geographic
@@ -57,6 +63,7 @@
 \examples{
 run <- TRUE
 qt <- TRUE
+plo <- interactive()
 if (run) {
   ## Extract an example SpatialGridDataFrame and plot it
   data(meuse.grid) # A data.frame
@@ -66,12 +73,12 @@ if (run) {
   image(mg_dist, axes=TRUE)
   ## Convert to im format and plot it
   mg_im <- as(mg_dist, "im")
-  \dontrun{
+  if(plo) {
    plot(mg_im)
   }
   ## Convert back to SpatialGridDataFrame and plot it again
   mg2 <- as.SpatialGridDataFrame.im(mg_im)
-  \dontrun{
+  if(plo) {
    image(mg2, axes=TRUE)
   }
 }
@@ -80,12 +87,12 @@ if (run) {
   ## Convert SpatialGridDataFrame -> SpatRaster -> im and plot it
   r <- as(mg2, "SpatRaster")
   rim <- as.im(r)
-  plot(rim)
+  if(plo) plot(rim)
   ## image with categorical values
   rr <- rast(nrows=2, ncols=3)
   values(rr) <- factor(letters[11:16])
   ii <- as.im(rr)
-  plot(ii)
+  if(plo) plot(ii)
 }
 }
 \keyword{spatial}
