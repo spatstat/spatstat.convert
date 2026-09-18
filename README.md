@@ -1,5 +1,6 @@
 # spatstat.convert
 
+[![CRAN_Status_Badge](https://www.r-pkg.org/badges/version/spatstat.convert)](http://CRAN.R-project.org/package=spatstat.convert)
 [![GitHub R package version](https://img.shields.io/github/r-package/v/spatstat/spatstat.convert)](https://github.com/spatstat/spatstat.convert)
 
 ## Utilities for converting between spatial data formats
